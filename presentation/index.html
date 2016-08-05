@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>D3 Fundamentals Workshop</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Data Visualisation Fundamentals with D3.js
+
+							### August 5, 2016 @ BongoHive!
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## What is Data?
+
+							 * text and numbers and columns and rows;
+							 * overwhelming to look at
+							 * Excel sheets
+							 * Database tables
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Data can be Useful:
+
+							 * is information
+							 * provides insight
+							 * leads to wisdom
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## What is Data Visualisation?
+
+							1 Picture == 1000 words
+
+							1 Picture == many many numbers
+
+							### Data Visualisation: numbers -> pictures
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Data Vis Software
+
+							 * Excel
+							 * Tableau
+							 * matplotlib
+							 * gnuplot
+							 * *and more*
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Data Vis Online:
+
+							 * Google Sheets/Google Charts
+							 * Tableau Online
+							 * **d3**
+							  * highcharts
+							  * nvd3
+								* *many others built on d3*
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Why Online?
+
+							 * No special software downloads
+							 * Only need a web browser*:
+							 * Underlying Hardware and OS are unimportant
+							  * PC, Mac
+								* Windows, OSX, Linux, iOS, Android
+								* Laptops, desktops, smart phones, screen-readers
+
+							### Make info accessible to more people!
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Modern Web Browsers!
+							 * Chrome
+							 * Firefox
+							 * Safari
+							 * Opera
+							 * Internet ~~Exploder~~ Explorer:
+							  * IE10, IE11, Edge
+							  * ~~IE6~~, ~~IE7~~, ~~IE8~~, ~~(IE9)~~
+							 * Screen readers
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Web Standards
+							 * HTML5
+							 * CSS3
+							 * SVG
+							 * Javascript/ECMAScript
+
+							#### Assure maximum browser support
+
+							The modern web is beautiful, lightweight, scalable, and accessible.
+						</script>
+					</section>
+				</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Data Driven Documents
+							### (d3)
+
+							 * Binds data directly to the DOM
+							 * Manipulate DOM elements
+							  * (jQuery does this as well)
+							 * Respond to changes in the dataset.
+							 * Use SVG to render the graphics
+							  * Manipulate DOM elements!
+							 * **Open Source**
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## D3 is Hard
+							 * [D3 Wiki](https://github.com/d3/d3/wiki)
+							  * documentation
+							  * Tutorials
+							  * Examples
+							   * [D3 examples](https://d3js.org/examples)
+							   * [Blocks](http://bl.ocks.org)
+								 * [Mike Bostock's Blocks](https://bl.ocks.org/mbostock)
+							 * Ask questions
+							   * [d3 google group](http://groups.google.com/group/d3-js)
+							   * [d3js Slack](https://d3-slackin.herokuapp.com/)
+							   * [d3 gitter group](https://gitter.im/d3/d3)
+							   * [IRC](irc://chat.freenode.net/#d3.js)
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Developing with D3:
+
+							## Downloadable Tools
+							 * Code Editors (vim, emacs, Notepad++, Atom)
+							 * Tools: Node.js, Javascript development tools
+							 * Web Servers: (Ruby, Python)
+						 </script>
+					 </section>
+				 </section>
+				 <section>
+					 <section data-markdown>
+						 <script type="text/template">
+							## Getting Started with D3 today:
+
+							 * [BlockBuilder](https://blockbuilder.org)
+							 * Don't worry about servers
+							 * Don't worry about boilerplate
+
+							 ### Dive right in!
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# SVG Basics
+							## Let's live code!
+
+							 * Shapes
+							  * Rectangle
+								 * Square
+							  * Circle
+							 * Coordinates
+							 * Colors
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Javascript Basics
+							## Let's live code!
+
+							* Arrays
+							 * "lists of things"
+							 * Get a specific value out of an array
+							 * Iterate through them
+							* Objects
+							 * Complex structures
+							  * Address using dot notation (myobject.x)
+								* Address using square-brackets (myobject["y"])
+							* Arrays of Objects
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/markdown">
+							# D3 Basics
+
+							 * Selections
+							  * Manipulate elements by "Selecting them"
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Manipulate Data with D3
+							## Let's live code!
+
+							 * d3.csv
+							 * Filter out blank records
+							 * Normalize genders
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Manipulate DOM with D3
+							 * d3.select
+							 * d3.selectAll
+							 * method chaining
+							 * Binding Data
+						 </script>
+ 					</section>
+ 					<section data-markdown>
+ 						<script type="text/template">
+							# Basic Bar Chart with D3
+							 * Scales map data-space to screen space
+							  * d3.scale.linear
+								 * y
+							  * d3.scale.ordinal
+								 * x
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							# Special Thanks
+
+							## Central Statistical Office
+							 * Mr. John Kalumbi
+							 * Ms. Etambuyu Lukanga
+							 * Mr. Mbomena Vundamina
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Special Thanks
+
+							## BongoHive!
+							 * Silumesii Maboshe
+							 * Joshua Chipile
+							 * Chinyama Mwenya
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							# Acknowledgements
+
+							 * Ian Johnson (@enjalot)
+							 * Kai Chang (@syntagmatic)
+							 * Micah Stubbs (@micahstubbs)
+							 * Shirley Wu (@sxywu)
+							 * Scott Murray (@alignedleft)
+							 * Jerome Cukier (@jcukier)
+							 * Christophe Viau (@d3visualization)
+							 * Zan Armstrong (@zanstrong)
+							 * Mike Bostock (@mbostock)
+							 * D3 Bay Area Community
+						</script>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
