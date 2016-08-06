@@ -1,26 +1,103 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
   <style>
     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    .axis text {
+      font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
   </style>
 </head>
 
 <body>
   <script>
-    // Feel free to change or delete any of the code you see in this editor!
-    var svg = d3.select("body").append("svg")
-      .attr("width", 960)
-      .attr("height", 500)
+    d3.csv("data/deaths.csv", function(error, data) {
+        if(error) throw error;
 
-    svg.append("text")
-      .text("")
-      .attr("y", 200)
-      .attr("x", 120)
-      .style("font-size", 36)
-      .style("font-family", "monospace")
+        var  margin = { top: 20, bottom: 200, left: 40, right: 20 }
+          , height = 500 - margin.top - margin.bottom
+          , width = 700 - margin.left - margin.right
+        ;
+        data.forEach(function(d) {
+            if(d.SEX === "1")
+              d.SEX = "Male";
+            else {
+              d.SEX = "Female";
+            }
 
+            d.AGE = +d.AGE;
+          })
+        ;
+
+        var causes = d3.nest()
+            .key(function(d) { return d.CAUSE; })
+            .entries(data)
+        ;
+        causes.sort(function(a, b) { return d3.descending(a.values.length, b.values.length); })
+      //  console.log(data);
+        var lengths = causes.map(function(d) { return d.values.length; });
+        var extent = d3.extent(lengths);
+        console.log(extent, causes);
+
+        var x = d3.scale.ordinal()
+              .domain(causes.map(function(d) { return d.key; }))
+              .rangeRoundBands([0, width])
+        ;
+        var y = d3.scale.linear()
+              .domain(extent)
+              .range([height, 0])
+        ;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        ;
+
+        var rect = svg.selectAll("rect")
+            .data(causes)
+        ;
+
+        rect.enter().append("rect")
+          .attr("x", function(d) { return x(d.key); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.values.length); })
+          .attr("height", function(d) { return height - y(d.values.length); })
+          .style("stroke", "red")
+          .style("fill", "steelblue")
+        ;
+
+        var xAxis = d3.svg.axis()
+            .orient("bottom")
+            .scale(x)
+        ;
+        svg
+          .append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+        ;
+        svg.select(".x.axis").selectAll(".tick text")
+          .attr("y", 0)
+          .attr("x", -10)
+          .attr("dy", ".35em")
+          .attr("transform", "rotate(-90)")
+          .style("text-anchor", "end");
+
+        ;
+
+
+
+      })
+    ;
   </script>
 </body>
-
